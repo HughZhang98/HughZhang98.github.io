@@ -35,8 +35,10 @@ jobs:
         with:
           node-version: 20
           cache: 'npm'
+      - name: Clean npm cache
+        run: npm cache clean --force # 清理 npm 缓存
       - name: Install dependencies
-        run: npm install
+        run: npm install --legacy-peer-deps # 使用 legacy-peer-deps 选项
       - name: Clean dist directory
         run: rm -rf ./dist # 清理旧的构建目录
       - name: Build
