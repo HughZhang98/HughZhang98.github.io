@@ -33,7 +33,7 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v3 
         with:
-          node-version: 20
+          node-version: 22.4
           cache: 'npm'
       - name: Clean npm cache
         run: npm cache clean --force # 清理 npm 缓存
