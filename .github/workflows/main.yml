@@ -37,6 +37,8 @@ jobs:
           cache: "npm"
       - name: Install dependencies
         run: |
+          rm -rf node_modules package-lock.json  # 清理现有依赖
+          npm install vite @vitejs/plugin-vue    # 安装 vite 和 vue 插件
           npm install   
           npm install -g vite  # 全局安装 vite
       - name: Build
