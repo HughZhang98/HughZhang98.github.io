@@ -38,7 +38,7 @@ jobs:
       - name: Clean npm cache
         run: npm cache clean --force # 清理 npm 缓存
       - name: Install dependencies
-        run: npm ci --legacy-peer-deps || { echo 'npm ci failed'; exit 1; } # 使用 npm ci 安装依赖
+        run: npm install --legacy-peer-deps || { echo 'npm install failed'; exit 1; } # 使用 npm install 安装依赖
       - name: Clean dist directory
         run: rm -rf ./dist # 清理旧的构建目录
       - name: Build
