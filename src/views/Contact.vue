@@ -24,7 +24,7 @@
 				<label>社交媒体: </label>
 				<div class="social-links">
 					<a href="https://github.com/HughZhang98" target="_blank">GitHub</a>
-					<a href="www.linkedin.com/in/hao-zhang-54a959278" target="_blank">LinkedIn</a>
+					<a href="https://www.linkedin.com/in/hao-zhang-54a959278/" target="_blank">LinkedIn</a>
 					<a href="https://www.instagram.com/hughzhang108/" target="_blank">Instagram</a>
 					<a href="https://www.facebook.com/profile.php?id=100012386740428" target="_blank">Facebook</a>
 				</div>
