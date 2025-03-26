@@ -33,12 +33,14 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v3 
         with:
-          node-version: 18
+          node-version: 20
           cache: 'npm'
       - name: Install dependencies
         run: npm install
+      - name: Clean dist directory
+        run: rm -rf ./dist # 清理旧的构建目录
       - name: Build
-        run: npm run build
+        run: npm run build || { echo 'Build failed'; exit 1; } # 添加错误处理
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact
