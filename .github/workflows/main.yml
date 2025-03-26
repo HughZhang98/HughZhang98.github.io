@@ -38,7 +38,10 @@ jobs:
       - name: Clean npm cache
         run: npm cache clean --force # 清理 npm 缓存
       - name: Install dependencies
-        run: npm install --legacy-peer-deps # 使用 legacy-peer-deps 选项
+        run: |
+          for i in {1..3}; do
+            npm install --legacy-peer-deps && break || sleep 10
+          done # 尝试最多 3 次安装依赖
       - name: Clean dist directory
         run: rm -rf ./dist # 清理旧的构建目录
       - name: Build
