@@ -54,11 +54,30 @@ const projects = ref([
         id: 2,
         title: '企业微信前端架构重构',
         content: '参与企业微信Web版的架构重构，使用Vue3和TypeScript开发新的组件库，提高了代码复用率和开发效率。'
+      },
+      {
+        id: 3,
+        title: 'AI模型开发',
+        content: '参与AI模型开发，负责模型训练和部署，提高了模型的准确性和效率。'
       }
     ]
   },
   {
     id: 2,
+    company: '个人博客后台管理系统',
+    startTime: '2024年1月',
+    endTime: '2024年3月',
+    title: '全栈开发工程师',
+    items: [
+      {
+        id: 1,
+        title: '博客后台管理系统',
+        content: '开发了博客后台管理系统，实现了博客的创建、编辑、删除、发布等功能，支持Markdown格式。'
+      }
+    ]
+  },
+  {
+    id: 3,
     company: '上港哪吒智慧科技',
     startTime: '2023年10月',
     endTime: '2024年2月',
@@ -77,16 +96,16 @@ const projects = ref([
     ]
   },
   {
-    id: 3,
-    company: '蒙纳什大学',
+    id: 4,
+    company: '蒙纳什大学行业体验项目',
     startTime: '2023年2月',
     endTime: '2023年12月',
-    title: 'Web前端开发工程师',
+    title: '软件开发工程师',
     items: [
       {
         id: 1,
-        title: '头条号内容创作平台',
-        content: '开发头条号内容创作平台的前端部分，实现了富文本编辑器和内容发布功能，支持多种媒体格式。'
+        title: '心理医生个人网站',
+        content: '一名心理医生个人网站，用来展示心理医生的个人资料，以及心理咨询服务。'
       },
       {
         id: 2,
@@ -161,6 +180,12 @@ const projects = ref([
   z-index: 1;
   transform: translateX(-50%);
   box-shadow: 0 0 0 4px rgba(78, 84, 200, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.timeline-item:hover .timeline-dot {
+  transform: translateX(-50%) scale(1.3);
+  box-shadow: 0 0 0 6px rgba(78, 84, 200, 0.3);
 }
 
 .timeline-content {
@@ -217,5 +242,19 @@ const projects = ref([
 .project-details p {
   color: #5d6978;
   line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .timeline::before {
+    left: 30px;
+  }
+  
+  .timeline-item {
+    padding-left: 50px;
+  }
+  
+  .timeline-dot {
+    left: 30px;
+  }
 }
 </style>

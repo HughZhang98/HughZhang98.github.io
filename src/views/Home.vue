@@ -25,8 +25,9 @@
         <div class="about-me">
           <h3 class="section-title">关于我</h3>
           <div class="section-content">
-            <p>我是一名拥有8年经验的高级前端工程师，专注于构建高性能、可扩展的Web应用程序。我熟悉现代前端框架和技术栈，能够从概念到实现端到端地交付项目。</p>
-            <p>在我的职业生涯中，我参与过多个大型项目的开发，包括微信小程序框架优化、企业级应用架构重构等。我善于解决复杂问题，并且热衷于学习新技术。</p>
+            <p>我在Monash University完成了学士学位的课程，主修Information Technology - Software Development，辅修Data Science。</p>
+            <p>目前我是一名前端工程师，专注于构建高性能、可扩展的Web应用程序。我熟悉现代前端框架和技术栈，能够从概念到实现端到端地交付项目。</p>
+            <p>在我的职业生涯中，我参与过多个项目的开发，包括企业级应用架构重构和国外项目等。我善于解决复杂问题，并且热衷于学习新技术。</p>
           </div>
         </div>
 
@@ -36,56 +37,52 @@
             <div class="skill-group">
               <h4>前端技术</h4>
               <div class="skill-tags">
-                <span class="skill-tag">JavaScript</span>
-                <span class="skill-tag">TypeScript</span>
-                <span class="skill-tag">Vue.js</span>
-                <span class="skill-tag">React</span>
-                <span class="skill-tag">HTML5</span>
-                <span class="skill-tag">CSS3</span>
-                <span class="skill-tag">SASS/LESS</span>
+                <span class="skill-tag" v-for="skill in skills.frontend" :key="skill">{{ skill }}</span>
               </div>
             </div>
             
             <div class="skill-group">
               <h4>后端技术</h4>
               <div class="skill-tags">
-                <span class="skill-tag">Node.js</span>
-                <span class="skill-tag">Express</span>
-                <span class="skill-tag">MongoDB</span>
+                <span class="skill-tag" v-for="skill in skills.backend" :key="skill">{{ skill }}</span>
               </div>
             </div>
             
             <div class="skill-group">
               <h4>工具 & 方法论</h4>
               <div class="skill-tags">
-                <span class="skill-tag">Git</span>
-                <span class="skill-tag">Webpack</span>
-                <span class="skill-tag">Vite</span>
-                <span class="skill-tag">敏捷开发</span>
+                <span class="skill-tag" v-for="skill in skills.tools" :key="skill">{{ skill }}</span>
+              </div>
+            </div>
+
+            <div class="skill-group">
+              <h4>数据分析 & 建模 & 可视化</h4>
+              <div class="skill-tags">
+                <span class="skill-tag" v-for="skill in skills.data" :key="skill">{{ skill }}</span>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="education">
+        <!-- <div class="education">
           <h3 class="section-title">教育背景</h3>
           <div class="section-content">
             <div class="education-item">
               <h4>Monash University - 蒙纳什大学</h4>
               <p class="education-year">2021 - 2024</p>
-              <p class="education-degree">IT - Software Development ｜ Data Science，学士学位</p>
+              <p class="education-degree">Information Technology - Software Development ｜ Data Science，学士学位</p>
             </div>
           </div>
-        </div>
+        </div> -->
 
         <div class="interests">
           <h3 class="section-title">兴趣爱好</h3>
           <div class="section-content">
-            <p>除了编程，我还喜欢摄影、阅读和旅行。我是一名业余摄影师，喜欢捕捉自然景观和城市风光。我也是一名科技书籍的狂热读者，经常关注最新的技术趋势和发展。</p>
+            <p>除了编程，我还喜欢摄影和旅行。我是一名业余摄影师，喜欢捕捉自然景观和城市风光。我也是一名电子产品爱好者，经常关注最新的产品和技术的趋势和发展。</p>
           </div>
         </div>
 
-        <div class="achievements">
+        <!-- <div class="achievements">
           <h3 class="section-title">成就与认证</h3>
           <div class="section-content">
             <div class="achievement-item">
@@ -97,7 +94,7 @@
               <p>Vue.js社区活跃贡献者，提交过多个核心功能改进</p>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
@@ -106,6 +103,14 @@
 
 <script setup>
 import Topbar from '../components/Topbar.vue'
+import { ref } from 'vue'
+
+const skills = ref({
+  frontend: ['JavaScript', 'TypeScript', 'Vue.js', 'React', 'HTML5', 'CSS3', 'SASS/LESS', 'Three.Js', 'Bootstrap', 'Element-UI', 'Ant Design', 'FullCalendar', 'Cannon.js'],
+  backend: ['Node.js', 'Express', 'MongoDB', 'MySQL'],
+  tools: ['Git', 'Webpack', 'Vite', '敏捷开发', 'UI Design', 'Figma', 'Blender'],
+  data: ['Python', 'R', 'Pandas', 'NumPy', 'Echarts', 'Tableau', 'Vega-Lite'],
+})
 </script>
 
 <style scoped>

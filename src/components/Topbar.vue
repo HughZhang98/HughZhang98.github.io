@@ -13,9 +13,9 @@
 		<div class="topbar-right">
 			<nav>
 				<ul>
-					<li><router-link to="/">首页</router-link></li>
-					<li><router-link to="/project">行业经验</router-link></li>
-					<li><router-link to="/contact">联系我</router-link></li>
+					<template v-for="item in navList" :key="item.path">
+						<li><router-link :to="item.path">{{ item.name }}</router-link></li>
+					</template>
 				</ul>
 			</nav>
 		</div>
@@ -23,7 +23,22 @@
 </template>
 
 <script lang="ts" setup>
-import { } from 'vue'
+import { ref } from 'vue'
+
+const navList = ref([
+	{
+		name: '首页',
+		path: '/',
+	},
+	{
+		name: '行业经历',
+		path: '/project',
+	},
+	{
+		name: '联系我',
+		path: '/contact',
+	}
+])
 
 </script>
 
