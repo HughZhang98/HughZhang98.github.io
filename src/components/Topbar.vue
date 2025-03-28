@@ -13,7 +13,8 @@
 		<div class="topbar-right">
 			<nav>
 				<ul>
-					<li><router-link to="#projects">行业经验</router-link></li>
+					<li><router-link to="/">首页</router-link></li>
+					<li><router-link to="/project">行业经验</router-link></li>
 					<li><router-link to="/contact">联系我</router-link></li>
 				</ul>
 			</nav>
