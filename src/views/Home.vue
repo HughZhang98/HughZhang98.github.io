@@ -5,7 +5,7 @@
     <div class="container">
       <div class="profile-section">
         <div class="profile-image">
-          <img src="../assets/profile.jpg" alt="Hugh Zhang" />
+          <img src="../assets/vue.svg" alt="Hugh Zhang" />
         </div>
         <div class="profile-info">
           <h1>张昊 (Hugh Zhang)</h1>

@@ -8,7 +8,7 @@
 			<div class="contact-card">
 				<div class="contact-header">
 					<div class="contact-avatar">
-						<img src="../assets/profile.jpg" alt="Hugh Zhang" />
+						<img src="../assets/vue.svg" alt="Hugh Zhang" />
 					</div>
 					<div class="contact-name">
 						<h2>张昊 (Hugh Zhang)</h2>
