@@ -113,7 +113,7 @@ const skills = ref({
 })
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .home-page {
   background-color: #f4f5f7;
   min-height: 100vh;

@@ -157,7 +157,7 @@ const projects = ref([
 
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .project-page {
   background-color: #f4f5f7;
   min-height: 100vh;
