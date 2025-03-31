@@ -61,7 +61,7 @@
 									</div>
 								</template>
 								<div class="qrcode-container">
-									<img src="../assets/avatar.jpg" alt="微信二维码" class="qrcode-image" width="100" />
+									<img src="../assets/weChatQRCode.png" alt="微信二维码" class="qrcode-image" width="100" />
 									<p class="qrcode-tip">可以扫码添加</p>
 								</div>
 							</el-popover>
