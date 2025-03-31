@@ -40,7 +40,7 @@ import { ref } from 'vue';
 const projects = ref([
   {
     id: 1,
-    company: '美团',
+    company: '美团（实习）',
     startTime: '2024年9月',
     endTime: '至今',
     title: '软件开发工程师',
@@ -83,7 +83,7 @@ const projects = ref([
   },
   {
     id: 3,
-    company: '上港哪吒智慧科技',
+    company: '上港哪吒智慧科技（实习）',
     startTime: '2023年10月',
     endTime: '2024年2月',
     title: 'Web前端开发工程师',

@@ -85,11 +85,11 @@ const navList = ref([
 
 .topbar-right nav ul li a {
 	text-decoration: none;
-	color: #007bff;
+	color: #4e54c8;
 	transition: color 0.3s;
 }
 
 .topbar-right nav ul li a:hover {
-	color: #0056b3;
+	color: #8f94fb;
 }
 </style>
