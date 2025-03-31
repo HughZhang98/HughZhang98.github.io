@@ -23,7 +23,10 @@
 						</div>
 						<div class="info-content">
 							<h3>电子邮件</h3>
-							<p><a href="mailto:hughhaozhang@gmail.com">hughhaozhang@gmail.com</a></p>
+							<div class="copyable-content">
+								<p><a href="mailto:hughhaozhang@gmail.com">hughhaozhang@gmail.com</a></p>
+								<i class="fas fa-copy copy-icon" @click="copyToClipboard('hughhaozhang@gmail.com')" title="复制邮箱"></i>
+							</div>
 						</div>
 					</div>
 
@@ -33,8 +36,14 @@
 						</div>
 						<div class="info-content">
 							<h3>电话</h3>
-							<p>+86 156-1016-6522</p>
-							<p>+61 490-826-897</p>
+							<div class="copyable-content">
+								<p>+86 156-1016-6522</p>
+								<i class="fas fa-copy copy-icon" @click="copyToClipboard('+86 156-1016-6522')" title="复制电话"></i>
+							</div>
+							<div class="copyable-content">
+								<p>+61 490-826-897</p>
+								<i class="fas fa-copy copy-icon" @click="copyToClipboard('+61 490-826-897')" title="复制电话"></i>
+							</div>
 						</div>
 					</div>
 
@@ -44,13 +53,16 @@
 						</div>
 						<div class="info-content">
 							<h3>微信</h3>
-							<el-popover placement="right" trigger="hover" popper-class="qrcode-popover">
+							<el-popover placement="bottom" trigger="hover" popper-class="qrcode-popover">
 								<template #reference>
-									<p class="wechat-id">Hugh6522</p>
+									<div class="wechat-id-container">
+										<p class="wechat-id">Hugh6522</p>
+										<i class="fas fa-qrcode qrcode-icon"></i>
+									</div>
 								</template>
 								<div class="qrcode-container">
-									<img src="../assets/avatar.jpg" alt="微信二维码" class="qrcode-image" width="100"/>
-									<p class="qrcode-tip">扫码添加我的微信</p>
+									<img src="../assets/avatar.jpg" alt="微信二维码" class="qrcode-image" width="100" />
+									<p class="qrcode-tip">可以扫码添加</p>
 								</div>
 							</el-popover>
 						</div>
@@ -123,7 +135,26 @@
 
 <script setup>
 import Topbar from '../components/Topbar.vue'
+import { ElMessage } from 'element-plus'
 
+const copyToClipboard = (text) => {
+	navigator.clipboard.writeText(text)
+		.then(() => {
+			ElMessage({
+				message: '已复制到剪贴板',
+				type: 'success',
+				duration: 2000
+			})
+		})
+		.catch(err => {
+			ElMessage({
+				message: '复制失败，请手动复制',
+				type: 'error',
+				duration: 2000
+			})
+			console.error('无法复制: ', err);
+		});
+}
 </script>
 
 <style lang="scss" scoped>
@@ -136,6 +167,32 @@ import Topbar from '../components/Topbar.vue'
 	max-width: 900px;
 	margin: 0 auto;
 	padding: 40px 20px;
+}
+
+.copyable-content {
+	display: flex;
+	align-items: center;
+	margin-bottom: 5px;
+
+	p {
+		margin: 0;
+		margin-right: 8px;
+	}
+}
+
+.copy-icon {
+	font-size: 14px;
+	color: #909399;
+	cursor: pointer;
+	transition: color 0.3s;
+
+	&:hover {
+		color: #4e54c8;
+	}
+
+	&:active {
+		transform: scale(0.9);
+	}
 }
 
 .page-title {
@@ -381,37 +438,63 @@ import Topbar from '../components/Topbar.vue'
 }
 
 .wechat-id {
-  color: #4e54c8;
-  cursor: pointer;
-  position: relative;
+	color: #4e54c8;
+	cursor: pointer;
+	position: relative;
+}
+
+.wechat-id-container {
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+}
+
+.wechat-id {
+	color: #4e54c8;
+	margin-right: 5px;
+}
+
+.wechat-id-container:hover .wechat-id {
+	text-decoration: underline;
+}
+
+.qrcode-icon {
+	font-size: 14px;
+	color: #4e54c8;
+	opacity: 0.8;
+}
+
+.wechat-id-container:hover .qrcode-icon {
+	opacity: 1;
 }
 
 .wechat-id:hover {
-  text-decoration: underline;
+	text-decoration: underline;
 }
+
 .qrcode-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 5px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 5px;
 }
 
 .qrcode-image {
-  display: block;
-  margin: 0 auto;
+	display: block;
+	margin: 0 auto;
 }
 
 .qrcode-tip {
-  margin-top: 8px;
-  text-align: center;
-  font-size: 14px;
-  color: #606266;
+	margin-top: 8px;
+	text-align: center;
+	font-size: 14px;
+	color: #606266;
 }
 
 :deep(.qrcode-popover) {
-  min-width: 140px;
-  text-align: center;
+	min-width: 140px;
+	text-align: center;
 }
 
 @media (max-width: 768px) {
