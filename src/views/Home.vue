@@ -1,7 +1,7 @@
 <template>
   <div class="home-page">
     <Topbar />
-    
+
     <div class="container">
       <div class="profile-section">
         <div class="profile-image">
@@ -40,14 +40,14 @@
                 <span class="skill-tag" v-for="skill in skills.frontend" :key="skill">{{ skill }}</span>
               </div>
             </div>
-            
+
             <div class="skill-group">
               <h4>后端技术</h4>
               <div class="skill-tags">
                 <span class="skill-tag" v-for="skill in skills.backend" :key="skill">{{ skill }}</span>
               </div>
             </div>
-            
+
             <div class="skill-group">
               <h4>工具 & 方法论</h4>
               <div class="skill-tags">
@@ -194,7 +194,7 @@ const skills = ref({
   box-shadow: 0 4px 8px rgba(78, 84, 200, 0.3);
 }
 
-.content-section > div {
+.content-section>div {
   background-color: white;
   border-radius: 8px;
   padding: 20px;
@@ -251,6 +251,12 @@ const skills = ref({
   font-size: 0.9rem;
   display: inline-flex;
   align-items: center;
+  transition: all 0.3s ease;
+}
+
+.skill-tag:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(78, 84, 200, 0.4);
 }
 
 .education-item {
@@ -277,16 +283,16 @@ const skills = ref({
   .profile-section {
     flex-direction: column;
   }
-  
+
   .profile-image {
     width: 100%;
     padding-bottom: 0;
   }
-  
+
   .profile-info {
     text-align: center;
   }
-  
+
   .profile-social {
     justify-content: center;
   }
