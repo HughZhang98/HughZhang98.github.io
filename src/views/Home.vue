@@ -8,7 +8,7 @@
           <img src="../assets/avatar.jpg" alt="Hugh Zhang" />
         </div>
         <div class="profile-info">
-          <h1>张昊 (Hugh Zhang)</h1>
+          <h1>张昊 <br>(Hugh Zhang)</h1>
           <!-- <h2>前端工程师</h2> -->
           <div class="profile-social">
             <a href="https://github.com/HughZhang98" target="_blank" class="social-icon">
@@ -132,6 +132,7 @@ const skills = ref({
   overflow: hidden;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   margin-bottom: 30px;
+  align-items: center; 
 }
 
 .profile-image {
@@ -148,6 +149,7 @@ const skills = ref({
   border-radius: 50%;
   object-fit: cover;
   border: 4px solid #4e54c8;
+  max-width: 100%;
 }
 
 .profile-info {
@@ -287,6 +289,9 @@ const skills = ref({
   .profile-image {
     width: 100%;
     padding-bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .profile-info {
