@@ -9,7 +9,7 @@
         </div>
         <div class="profile-info">
           <h1>张昊 (Hugh Zhang)</h1>
-          <h2>前端工程师</h2>
+          <!-- <h2>前端工程师</h2> -->
           <div class="profile-social">
             <a href="https://github.com/HughZhang98" target="_blank" class="social-icon">
               <i class="fab fa-github"></i>

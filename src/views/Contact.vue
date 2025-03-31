@@ -12,7 +12,7 @@
 					</div>
 					<div class="contact-name">
 						<h2>张昊 (Hugh Zhang)</h2>
-						<p>前端工程师</p>
+						<!-- <p>前端工程师</p> -->
 					</div>
 				</div>
 
