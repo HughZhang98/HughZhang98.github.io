@@ -44,7 +44,15 @@
 						</div>
 						<div class="info-content">
 							<h3>微信</h3>
-							<p>Hugh6522</p>
+							<el-popover placement="right" trigger="hover" popper-class="qrcode-popover">
+								<template #reference>
+									<p class="wechat-id">Hugh6522</p>
+								</template>
+								<div class="qrcode-container">
+									<img src="../assets/avatar.jpg" alt="微信二维码" class="qrcode-image" width="100"/>
+									<p class="qrcode-tip">扫码添加我的微信</p>
+								</div>
+							</el-popover>
 						</div>
 					</div>
 
@@ -370,6 +378,40 @@ import Topbar from '../components/Topbar.vue'
 .submit-btn:hover {
 	transform: translateY(-2px);
 	box-shadow: 0 4px 8px rgba(78, 84, 200, 0.3);
+}
+
+.wechat-id {
+  color: #4e54c8;
+  cursor: pointer;
+  position: relative;
+}
+
+.wechat-id:hover {
+  text-decoration: underline;
+}
+.qrcode-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+}
+
+.qrcode-image {
+  display: block;
+  margin: 0 auto;
+}
+
+.qrcode-tip {
+  margin-top: 8px;
+  text-align: center;
+  font-size: 14px;
+  color: #606266;
+}
+
+:deep(.qrcode-popover) {
+  min-width: 140px;
+  text-align: center;
 }
 
 @media (max-width: 768px) {
