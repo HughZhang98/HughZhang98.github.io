@@ -119,7 +119,7 @@ import { ref } from 'vue'
 const skills = ref({
   frontend: ['JavaScript', 'TypeScript', 'Vue.js', 'React', 'HTML5', 'CSS3', 'SASS/LESS', 'Three.Js', 'Bootstrap', 'Element-UI', 'Ant Design', 'FullCalendar', 'Cannon.js', 'Echarts'],
   backend: ['Node.js', 'Express', 'MongoDB', 'MySQL'],
-  tools: ['Git', 'Webpack', 'Vite', '敏捷开发', 'UI Design', 'Figma', 'Blender'],
+  tools: ['Git', 'Webpack', 'Vite', 'Agile Development', 'UI Design', 'Figma', 'Blender'],
   data: ['Python', 'R', 'Pandas', 'NumPy', 'Tableau', 'Vega-Lite'],
 })
 </script>
