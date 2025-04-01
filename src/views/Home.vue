@@ -25,7 +25,7 @@
             <a href="https://github.com/HughZhang98" target="_blank" class="social-icon">
               <i class="fab fa-github"></i>
             </a>
-            <a href="https://www.linkedin.com/in/hugh-zhang" target="_blank" class="social-icon">
+            <a href="https://www.linkedin.com/in/hao-zhang-54a959278/" target="_blank" class="social-icon">
               <i class="fab fa-linkedin"></i>
             </a>
           </div>
