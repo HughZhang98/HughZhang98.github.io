@@ -37,11 +37,11 @@
 						<div class="info-content">
 							<h3>电话</h3>
 							<div class="copyable-content">
-								<p>+86 156-1016-6522</p>
+								<p>CN：+86 156-1016-6522</p>
 								<i class="fas fa-copy copy-icon" @click="copyToClipboard('+86 156-1016-6522')" title="复制电话"></i>
 							</div>
 							<div class="copyable-content">
-								<p>+61 490-826-897</p>
+								<p>AU：+61 490-826-897</p>
 								<i class="fas fa-copy copy-icon" @click="copyToClipboard('+61 490-826-897')" title="复制电话"></i>
 							</div>
 						</div>
@@ -75,15 +75,16 @@
 						<div class="info-content">
 							<h3>地址</h3>
 							<p>上海市杨浦区</p>
+							<p>济南市历下区</p>
 						</div>
 					</div>
 				</div>
 
 				<div class="availability-section">
 					<h3>联系时间</h3>
-					<p>工作日: 上午9:00 - 下午6:00 (北京时间)</p>
+					<p>工作日: 10:00AM - 6:00PM (BeiJing)</p>
 					<p>周末: 有限回复</p>
-					<p>通常在24小时内回复邮件和留言</p>
+					<p>通常在24小时内回复，急事请加微信</p>
 				</div>
 
 				<div class="social-section">

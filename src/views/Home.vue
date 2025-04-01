@@ -11,6 +11,17 @@
           <h1>张昊 <br>(Hugh Zhang)</h1>
           <!-- <h2>前端工程师</h2> -->
           <div class="profile-social">
+            <div class="social-icon">
+              <el-popover placement="bottom" trigger="hover" popper-class="qrcode-popover">
+                <template #reference>
+                  <i class="fab fa-weixin"></i>
+                </template>
+                <div class="qrcode-container">
+                  <img src="../assets/weChatQRCode.png" alt="微信二维码" class="qrcode-image" width="100" />
+                  <p class="qrcode-tip">可以扫码添加</p>
+                </div>
+              </el-popover>
+            </div>
             <a href="https://github.com/HughZhang98" target="_blank" class="social-icon">
               <i class="fab fa-github"></i>
             </a>
@@ -106,10 +117,10 @@ import Topbar from '../components/Topbar.vue'
 import { ref } from 'vue'
 
 const skills = ref({
-  frontend: ['JavaScript', 'TypeScript', 'Vue.js', 'React', 'HTML5', 'CSS3', 'SASS/LESS', 'Three.Js', 'Bootstrap', 'Element-UI', 'Ant Design', 'FullCalendar', 'Cannon.js'],
+  frontend: ['JavaScript', 'TypeScript', 'Vue.js', 'React', 'HTML5', 'CSS3', 'SASS/LESS', 'Three.Js', 'Bootstrap', 'Element-UI', 'Ant Design', 'FullCalendar', 'Cannon.js', 'Echarts'],
   backend: ['Node.js', 'Express', 'MongoDB', 'MySQL'],
   tools: ['Git', 'Webpack', 'Vite', '敏捷开发', 'UI Design', 'Figma', 'Blender'],
-  data: ['Python', 'R', 'Pandas', 'NumPy', 'Echarts', 'Tableau', 'Vega-Lite'],
+  data: ['Python', 'R', 'Pandas', 'NumPy', 'Tableau', 'Vega-Lite'],
 })
 </script>
 
@@ -132,7 +143,7 @@ const skills = ref({
   overflow: hidden;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   margin-bottom: 30px;
-  align-items: center; 
+  align-items: center;
 }
 
 .profile-image {
@@ -279,6 +290,26 @@ const skills = ref({
 
 .education-degree {
   color: #5d6978;
+}
+
+.qrcode-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+}
+
+.qrcode-image {
+  display: block;
+  margin: 0 auto;
+}
+
+.qrcode-tip {
+  margin-top: 8px;
+  text-align: center;
+  font-size: 14px;
+  color: #606266;
 }
 
 @media (max-width: 768px) {

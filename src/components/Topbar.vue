@@ -80,7 +80,7 @@ const navList = ref([
 }
 
 .topbar-right nav ul li {
-	margin-left: 10px;
+	margin-left: 18px;
 }
 
 .topbar-right nav ul li a {
