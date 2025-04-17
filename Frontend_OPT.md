@@ -11,12 +11,12 @@
 
 1. FP（First Paint 首次绘制）
 2. FCP（First Contentful Paint 首次内容绘制），FP到FCP中间主要是SPA应用js执行，太慢就会白屏过久
-3. FMP （First Meaningful Paint 首次有效绘制），主要内容呈现的时间（MutationObserver做信息采集）
-4. LCP （Largest Contentful Paint 最大内容绘制）， 加载最大内容块呈现时间
-5. INP （Interaction to Next Paint 用户交互绘制），用户交互到页面相应的时间
+3. FMP （First Meaningful Paint 首次有效绘制），**主要内容**呈现的时间（MutationObserver做信息采集，监视DOM树的更改）
+4. LCP （Largest Contentful Paint 最大内容绘制）， 加载最大内容块呈现时间 - 【4.58s -> 2.9s】
+5. INP （Interaction to Next Paint 用户交互绘制），用户交互到页面相应的时间 【232ms -> 88ms】
 6. TTI （可交互时间），注意SSR事件还没绑定
 7. TBT （Total Blocking Time 阻塞时间），从FCP到TTI之间的 总阻塞时间
-8. CLS （Cumulative Layout Shift 布局偏移），布局偏移情况，重拍reflow
+8. CLS （Cumulative Layout Shift 布局偏移），布局偏移情况，重拍reflow -【0.43 -> 0.22 】
 9. TTFB（Time to First Byte 首字节到达时间），请求出发后到接收到数据中间的时间
 
 #### 方案
@@ -92,6 +92,84 @@
 
 ## 前端性能如何评估，具体的性能指标体系和评估策略
 
-（主导，推进，负责）分析性能问题，给出性能问题对应解决方案，实施，建立完整的指标体系，持续监控，持续优化
+**（主导，推进，负责）分析性能问题**，给出性能问题对应**解决方案，实施，建立完整的指标体系**，持续监控，**持续优化**
 
 页面搭建之后，首屏加载非常慢（FMP 5s），很多冗余代码【来自搭建端有很多】
+
+性能监控平台
+
+### 性能指标体系建立
+
+1. FP（First Paint 首次绘制）
+2. FCP（First Contentful Paint 首次内容绘制），FP到FCP中间主要是SPA应用js执行，太慢就会白屏过久
+3. FMP （First Meaningful Paint 首次有效绘制），**主要内容**呈现的时间（MutationObserver做信息采集，监视DOM树的更改）
+4. LCP （Largest Contentful Paint 最大内容绘制）， 加载最大内容块呈现时间 - 【4.58s -> 2.9s】
+5. INP （Interaction to Next Paint 用户交互绘制），用户交互到页面相应的时间 【232ms -> 88ms】
+6. TTI （可交互时间），注意SSR事件还没绑定
+7. TBT （Total Blocking Time 阻塞时间），从FCP到TTI之间的 总阻塞时间
+8. CLS （Cumulative Layout Shift 布局偏移），布局偏移情况，重拍reflow -【0.43 -> 0.22 】
+9. TTFB（Time to First Byte 首字节到达时间），请求出发后到接收到数据中间的时间
+
+常规的指标使用Performance、PerformanceObserver API和Webvisual来做计算
+
+10. DNS的查询时间
+11. 资源加载时间，MutationObserver
+12. 长任务的时间，主线程占用时长超过50ms
+
+### 性能指标采集
+
+1. 常规指标采集：Performance、PerformanceObserver API和Webvisual
+2. 自定义指标， FMP 通过MutationObserver来自定义计算
+3. 额外指标： 首字节，服务端（DNS，资源加载，长任务）上报
+4. 上报：XHR（会有跨域），图片上报，实时/批量上报
+
+### 性能评估
+
+监控指标和数据都拿到了，就计算、统计、评估。能够得到性能报告，具体分析性能，持续解决
+
+实践中的性能优化
+
+结合上述指标和策略，实际举措：
+
+1. 减少资源体积：压缩CSS/JS，使用Tree Shaking 和代码分割
+2. 懒加载与预加载：延迟加载非关键资源，优先加载关键CSS和JS
+3. 优化图片：使用WebP格式，结合CDN
+4. 服务器端渲染（SSR）：提升首屏渲染速度
+5. 长列表优化：实现虚拟滚动
+
+#### 基准测试
+
+1. 确定目标设备和网络环境
+   1. 测试覆盖范围：高端、中端、低端设备，5g、4g、3g、弱网环境等
+   2. 模拟弱网：使用Chrome DevTools的网络调节功能
+2. 基准值定义
+   1. 根据行业标准和历史数据定义性能基准（如LCP < 2.5s，CLS < 0.1）
+
+## 作为leader如何落实，团队代码质量和整体管理怎么落实
+
+全栈平台，性能监控全链路设计
+
+### 指标体系设计、计算和评估等
+
+#### 原则
+
+1. 清晰且可量化：指标必须直观且易于理解，例如LCP、CLS、INP等。
+2. 与业务目标挂钩：例如关键页面的加载时间（LCP）直接影响用户留存率
+3. 覆盖加载、交互、稳定性：确保监控全面，不遗漏关键用户体验
+4. 埋点，为了追踪用户浏览痕迹，一次来评判产品用户体验
+
+#### 指标
+
+1. 加载性能
+   1. FP：首次绘制
+   2. FCP：首次内容绘制
+   3. LCP：最大内容绘制
+   4. TTFB：首字节到达时间
+2. 交互性能
+   1. INP：用户交互到下一次绘制时间
+   2. TBT：总阻塞时间
+3. 稳定性
+   1. CLS：页面布局偏移
+4. 业务自定义指标
+   1. 页面中某些功能模块的加载时间
+   2. 特定的用户行为路径完成时间
