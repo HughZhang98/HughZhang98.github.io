@@ -97,12 +97,12 @@
           <h3 class="section-title">成就与认证</h3>
           <div class="section-content">
             <div class="achievement-item">
-              <h4>Google认证开发专家</h4>
-              <p>2021年获得Google前端开发专家认证</p>
+              <h4>Test</h4>
+              <p>Testtesttest</p>
             </div>
             <div class="achievement-item">
-              <h4>开源贡献</h4>
-              <p>Vue.js社区活跃贡献者，提交过多个核心功能改进</p>
+              <h4>Test</h4>
+              <p>Testtesttest</p>
             </div>
           </div>
         </div> -->

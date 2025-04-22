@@ -11,19 +11,38 @@
 			</div>
 		</div>
 		<div class="topbar-right">
-			<nav>
+			<nav v-if="!isMobile">
 				<ul>
 					<template v-for="item in navList" :key="item.path">
 						<li><router-link :to="item.path">{{ item.name }}</router-link></li>
 					</template>
 				</ul>
 			</nav>
+
+			<!-- 小屏幕导航 -->
+			<div v-else class="mobile-menu">
+				<el-dropdown trigger="click" @command="handleCommand">
+					<span class="el-dropdown-link">
+						<el-icon><Menu /></el-icon>
+					</span>
+					<template #dropdown>
+						<el-dropdown-menu>
+							<el-dropdown-item v-for="item in navList" :key="item.path" :command="item.path">
+								{{ item.name }}
+							</el-dropdown-item>
+						</el-dropdown-menu>
+					</template>
+				</el-dropdown>
+			</div>
 		</div>
 	</div>
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
 
 const navList = ref([
 	{
@@ -39,6 +58,25 @@ const navList = ref([
 		path: '/contact',
 	}
 ])
+
+const isMobile = ref(false)
+
+const checkScreenSize = () => {
+	isMobile.value = window.innerWidth < 386
+}
+
+onMounted(() => {
+	checkScreenSize()
+	window.addEventListener('resize', checkScreenSize)
+})
+
+onUnmounted(() => {
+	window.removeEventListener('resize', checkScreenSize)
+})
+
+const handleCommand = (command: string | number | object) => {
+	router.push(command as string)
+}
 
 </script>
 
@@ -91,5 +129,38 @@ const navList = ref([
 
 .topbar-right nav ul li a:hover {
 	color: #8f94fb;
+}
+
+.mobile-menu .el-dropdown-link {
+  cursor: pointer;
+	color: #4e54c8;
+	display: flex;
+	align-items: center;
+	font-size: 20px;
+}
+:deep(.el-dropdown-menu) {
+  background-color: #f8f9fa;
+}
+
+:deep(.el-dropdown-menu__item) {
+  color: #4e54c8;
+  transition: color 0.3s;
+	text-align: center;
+	justify-content: center;
+}
+
+:deep(.el-dropdown-menu__item:hover) {
+  background-color: #f0f2f5;
+  color: #8f94fb;
+}
+
+:deep(.el-dropdown-menu__item:focus) {
+  color: #8f94fb;
+  background-color: #f0f2f5;
+}
+
+:deep(.el-dropdown-menu__item.is-disabled) {
+  cursor: not-allowed;
+  color: #bbbfc4;
 }
 </style>
