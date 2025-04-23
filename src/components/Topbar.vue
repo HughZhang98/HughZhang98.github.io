@@ -62,7 +62,7 @@ const navList = ref([
 const isMobile = ref(false)
 
 const checkScreenSize = () => {
-	isMobile.value = window.innerWidth < 386
+	isMobile.value = window.innerWidth < 390
 }
 
 onMounted(() => {
