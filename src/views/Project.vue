@@ -43,7 +43,7 @@ const projects = ref([
     company: '美团（实习）',
     startTime: '2024年9月',
     endTime: '至今',
-    title: '软件开发工程师',
+    title: '软件研发工程师',
     items: [
       {
         id: 1,
