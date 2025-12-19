@@ -30,7 +30,7 @@
 						</div>
 					</div>
 
-					<div class="info-item">
+					<!-- <div class="info-item">
 						<div class="info-icon">
 							<i class="fas fa-phone"></i>
 						</div>
@@ -45,7 +45,7 @@
 								<i class="fas fa-copy copy-icon" @click="copyToClipboard('+61 490-826-897')" title="复制电话"></i>
 							</div>
 						</div>
-					</div>
+					</div> -->
 
 					<div class="info-item">
 						<div class="info-icon">
@@ -68,7 +68,7 @@
 						</div>
 					</div>
 
-					<div class="info-item">
+					<!-- <div class="info-item">
 						<div class="info-icon">
 							<i class="fas fa-map-marker-alt"></i>
 						</div>
@@ -77,14 +77,14 @@
 							<p>上海市杨浦区</p>
 							<p>济南市历下区</p>
 						</div>
-					</div>
+					</div> -->
 				</div>
 
 				<div class="availability-section">
 					<h3>联系时间</h3>
 					<p>工作日: 10:00AM - 6:00PM (BeiJing)</p>
 					<p>周末: 有限回复</p>
-					<p>通常在24小时内回复，急事请加微信</p>
+					<p>通常在24小时内回复，请优先邮件，急事请加微信</p>
 				</div>
 
 				<div class="social-section">
@@ -299,6 +299,7 @@ const copyToClipboard = (text) => {
 }
 
 .availability-section {
+	color: #5d6978;
 	padding: 30px;
 	border-top: 1px solid #eaeaea;
 }
