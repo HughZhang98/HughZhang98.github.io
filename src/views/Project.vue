@@ -97,6 +97,11 @@ const projects = ref([
         id: 2,
         title: 'Web3D开发',
         content: '根据兴趣和导师的学习计划学习 Three.js, 并参与项目模型绘制和开发, 做出可以控制方向的小车和镜头跟随人物，后续自学并集成 Cannon物理引擎，增强物理模拟效果，学习 Blender，成功创建简单物体、场景和骨架动画，提升 3D 建模能力, 并进一步学习 Vue3 ，TypeScript，数据分析，数据可视化'
+      },
+      {
+        id: 3,
+        title: '建模与动画',
+        content: '掌握 Blender 建模、场景构建及骨架动画流程，具备完整的 3D 场景开发链路'
       }
     ]
   },
